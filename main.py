@@ -81,7 +81,8 @@ async def analyze_sprint(file: UploadFile = File(...)):
         mp4_path = video_path
 
     # Run pose detection
-    results = model(mp4_path, save=False, task="pose")
+    results = model(mp4_path, save=False, task="pose", stream = True)
+    results = list(results)
 
     # Detect sprint start
     hip_x_positions = []
